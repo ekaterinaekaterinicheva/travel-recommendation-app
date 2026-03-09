@@ -23,10 +23,14 @@ document.getElementById("btnSearch").addEventListener("click", searchPlaces);
   
         } 
         else if (keyword === "country" || keyword === "countries") {
+
+          data.countries.slice(0,2).forEach(country => {
+          
+            country.cities.slice(0,2).forEach(city => displayCard(city));
+          
+            });
+        }
   
-          data.countries.slice(0,2).forEach(place => displayCard(place));
-  
-        } 
         else {
   
           resultsDiv.innerHTML = "<p>No recommendations found.</p>";
@@ -64,4 +68,5 @@ function clearResults() {
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = ""; // Remove all content
   document.getElementById("keywordInput").value = ""; // Optional: also clear the search field
+
 }
